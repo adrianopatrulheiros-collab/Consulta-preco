@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Consulta Preço</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; }
+      .container { background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 2px 8px #0001; max-width: 420px; margin: auto; }
+      label { display: block; margin-bottom: 0.5em; font-weight: bold; }
+      input[type="text"] { width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #aaa; border-radius: 4px; }
+      button { background: #0070f3; color: #fff; border: none; padding: 0.6em 1.2em; border-radius: 4px; cursor: pointer; font-size: 1em; }
+      .result { margin-top: 1.5em; font-size: 1.2em; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Consulta Preço</h1>
+      <form id="consultaForm">
+        <label for="produto">Nome do Produto</label>
+        <input type="text" id="produto" name="produto" placeholder="Digite um produto..." required>
+        <button type="submit">Consultar</button>
+      </form>
+      <div id="resultado" class="result"></div>
+    </div>
+    <script>
+      // Exemplo didático: simula preços fixos para alguns produtos
+      const precos = {
+        "arroz": 6.99,
+        "feijão": 7.49,
+        "açúcar": 4.20,
+        "café": 14.90
+      };
+
+      document.getElementById('consultaForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const produto = document.getElementById('produto').value.trim().toLowerCase();
+        const resultadoDiv = document.getElementById('resultado');
+        if (precos[produto] !== undefined) {
+          resultadoDiv.textContent = `Preço do ${produto}: R$ ${precos[produto].toFixed(2)}`;
+        } else {
+          resultadoDiv.textContent = "Produto não encontrado. Tente: arroz, feijão, açúcar ou café.";
+        }
+      });
+    </script>
+  </body>
+</html>
+Adiciona index.html 
